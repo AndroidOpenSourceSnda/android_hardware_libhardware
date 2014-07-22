@@ -61,8 +61,13 @@ typedef struct effect_uuid_s {
 #define EFFECT_UUID_INITIALIZER { 0xec7178ec, 0xe5e1, 0x4432, 0xa3f4, \
                                   { 0x46, 0x57, 0xe6, 0x79, 0x52, 0x10 } }
 static const effect_uuid_t EFFECT_UUID_NULL_ = EFFECT_UUID_INITIALIZER;
+#ifdef STE_AUDIO
+static const effect_uuid_t * const EFFECT_UUID_NULL = &EFFECT_UUID_NULL_;
+static const char * const EFFECT_UUID_NULL_STR = "ec7178ec-e5e1-4432-a3f4-4657e6795210";
+#else
 const effect_uuid_t * const EFFECT_UUID_NULL = &EFFECT_UUID_NULL_;
 const char * const EFFECT_UUID_NULL_STR = "ec7178ec-e5e1-4432-a3f4-4657e6795210";
+#endif
 
 // The effect descriptor contains necessary information to facilitate the enumeration of the effect
 // engines present in a library.
